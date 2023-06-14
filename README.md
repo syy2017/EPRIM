@@ -64,19 +64,30 @@ immune gene sets.
 **Example**
 
 ``` r
-exp.profile <- load(file=paste0(workDir,"/data/PCG_tpm2.RData"))
+workDir <- "D:/Project/IJob"
+exp.profile <- get(load(file=paste0(workDir,"/data/PCG_tpm2.RData")))
 exp.profile.file <- paste0(workDir,"/data/PCG_tpm2Name.txt")
-interested.ER <- load(file=paste0(workDir,"/data/ERgenes.RData")) 
-signature.list <- load(file=paste0(workDir,"/data/signature.list.RData")) 
+interested.ER <- get(load(file=paste0(workDir,"/data/ERgenes.RData"))) 
+signature.list <- get(load(file=paste0(workDir,"/data/signature.list.RData"))) 
 
 ## Gene expression data
 exp.profile[1:3,1:3]
+#>                 TCGA.CG.4462 TCGA.CG.4306 TCGA.CG.4436
+#> ENSG00000186092      0.00000     0.000000    0.0000000
+#> ENSG00000187634     14.32882     1.129263    0.1090498
+#> ENSG00000188976     19.17756    28.584328   19.7157980
 
 ## Interested epigenetic regulators
 head(interested.ER)
+#> [1] "ENSG00000133627" "ENSG00000101442" "ENSG00000156802" "ENSG00000140320" "ENSG00000174744" "ENSG00000094804"
 
 ## Predetermined immune gene sets
-head(signature.list[1])
+signature.list[1]
+#> $Interferons
+#> [1] "ENSG00000186803" "ENSG00000233816" "ENSG00000228083" "ENSG00000147885" "ENSG00000234829"
+#> [6] "ENSG00000188379" "ENSG00000137080" "ENSG00000236637" "ENSG00000147873" "ENSG00000120235"
+#> [11] "ENSG00000214042" "ENSG00000120242" "ENSG00000171855" "ENSG00000184995" "ENSG00000111537"
+#> [16] "ENSG00000147896" "ENSG00000177047"
 
 ## Running the EPRIM 
 test_res <- EPRIM(exp.profile = exp.profile, 
