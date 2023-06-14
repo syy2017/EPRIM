@@ -21,8 +21,11 @@ also calculated for each gene set and were adjusted using the false discovery ra
 
 ## Usage
 
-EPRIM (exp.profile, exp.profile.file, interested.ER, signature.list, cor.cutoff = NULL, cor.method = "spearman",
-                   platform ="illumina", is.adjusted = FALSE, min.sz = 1, perm.times = 100)
+    EPRIM (exp.profile, exp.profile.file, interested.ER, signature.list, cor.cutoff = NULL, 
+
+      cor.method = "spearman", platform ="illumina", is.adjusted = FALSE, min.sz = 1, 
+       
+      perm.times = 100)
 
 **Arguments**
 
