@@ -64,8 +64,8 @@ immune gene sets.
 **Example**
 
 ``` r
-exp.profile <- get(load(file="D:/Project/IJob/EPRIM/data/PCG_tpm2.RData"))
-exp.profile.file <- "D:/Project/IJob/EPRIM/data/PCG_tpm2Name.txt"
+exp.profile <- get(load(file="D:/Project/IJob/EPRIM/data/exam_expre.RData"))
+exp.profile.file <- "D:/Project/IJob/EPRIM/data/exam_expreName.txt"
 interested.ER <- get(load(file="D:/Project/IJob/EPRIM/data/ERgenes.RData")) 
 signature.list <- get(load(file="D:/Project/IJob/EPRIM/data/signature.list.RData")) 
 
