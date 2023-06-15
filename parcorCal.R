@@ -1,10 +1,5 @@
-#' @title The partial correlation between genes and lncRNAs
-#' @description This is a function for calculating the partial correlation
-#'   coefficient and p.value between genes and lncRNAs.
-#' @details  \code{par.cor} for calculating the partial correlation
-#'   coefficient (PCC) between expression of lncRNA i and gene j by considering
-#'   the related sample's tumor purity as a third influence factor based on
-#'   pearson correlation.
+#' Calculation of the partial correlation between coding genes and epigenetic regulators.
+#'
 #' @param exp1 A numeric matrix containing the expression of mRNA (without 'interested.ER') with
 #'   rownames and colnames.
 #' @param exp2 A numeric matrix containing the expression of 'interested.ER' with
