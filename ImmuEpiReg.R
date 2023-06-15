@@ -24,7 +24,7 @@ ImmuEpiReg <- function(exp.profile,interested.ER,is.adjusted,tum.put,pathways,mi
   NERexpre <- as.matrix(NERexpre)
   
   #PCC calculation               
-  pccRes <- parcorCal(exp1 = NERexpre,exp2 = ERexpre,tum_pur = tum.put,is.adjusted = is.adjusted)
+  pccRes <- parcorCal(exp1 = NERexpre,exp2 = ERexpre,tum.pur = tum.put,is.adjusted = is.adjusted)
   pcc_pValue <- pccRes$p.value
   pcc_pcorValue <- pccRes$pcor.value
   #Rank list
@@ -38,7 +38,7 @@ ImmuEpiReg <- function(exp.profile,interested.ER,is.adjusted,tum.put,pathways,mi
     }
     ranks <- Rankscore[m,]
     #GSEA
-    ImmERCorRes <- fgsea::fgsea(pathways, ranks, minSize, maxSize=5000, nperm)
+    ImmERCorRes <- fgsea::fgsea(pathways, ranks, minSize, maxSize=5000, nperm=nperm)
     #Immune-ER correlations
     ImmERcorscore <- c()
     for(n in 1:nrow(ImmERCorRes)){
