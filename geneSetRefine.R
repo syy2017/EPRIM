@@ -65,6 +65,13 @@ genesetMeanFilter <- function(exp.profile, signature.df, cor.method = "spearman"
 
   cor.res <- tapply(signature.df$Gene, signature.df$setName, function(geneset) {
     signature.exp <- exp.profile[geneset, ]
+    # Only one signature gene in a gene set, make expression as a matrix
+    if(is.null(dim(signature.exp))){
+      signature.expMat <- matrix(as.numeric(signature.exp),nrow=1)
+      colnames(signature.expMat) <- names(signature.exp)
+      rownames(signature.expMat) <- geneset
+      signature.exp <- signature.expMat
+    }
     geneset.MeanCor <- genesetMeanCor(geneset.exp = signature.exp, cor.method = cor.method, cor.cutoff = cor.cutoff)
     return(geneset.MeanCor)
   })
