@@ -19,7 +19,7 @@
 
 parcorCal <- function(exp1,exp2,tum.pur,is.adjusted){
  
-  inter_samples <- intersect(intersect(colnames(exp1),colnames(exp2)),names(tum_pur))
+  inter_samples <- intersect(intersect(colnames(exp1),colnames(exp2)),names(tum.pur))
   tumpur <- tum.pur[inter_samples]
   if(length(tumpur)<1){stop("no same samples")}
   if (is.adjusted){
