@@ -9,7 +9,7 @@
 #' @return A numeric vector containing samples' tumor purity.
 
 tumpurCal <- function(input.dir,file.name,platform="illumina"){
-
+  library(estimate)
   dirOri <- getwd()
   setwd(input.dir)
   estimate::filterCommonGenes(input.f=file.name, output.f="expreFilter.gct", id="GeneSymbol")
