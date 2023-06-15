@@ -64,11 +64,10 @@ immune gene sets.
 **Example**
 
 ``` r
-workDir <- "D:/Project/IJob"
-exp.profile <- get(load(file=paste0(workDir,"/data/PCG_tpm2.RData")))
-exp.profile.file <- paste0(workDir,"/data/PCG_tpm2Name.txt")
-interested.ER <- get(load(file=paste0(workDir,"/data/ERgenes.RData"))) 
-signature.list <- get(load(file=paste0(workDir,"/data/signature.list.RData"))) 
+exp.profile <- get(load(file="D:/Project/IJob/EPRIM/data/PCG_tpm2.RData"))
+exp.profile.file <- "D:/Project/IJob/EPRIM/data/PCG_tpm2Name.txt"
+interested.ER <- get(load(file="D:/Project/IJob/EPRIM/data/ERgenes.RData")) 
+signature.list <- get(load(file="D:/Project/IJob/EPRIM/data/signature.list.RData")) 
 
 ## Gene expression data
 exp.profile[1:3,1:3]
@@ -92,11 +91,26 @@ signature.list[1]
 ## Running the EPRIM 
 test_res <- EPRIM(exp.profile = exp.profile, 
                    exp.profile.file = exp.profile.file,
-                   interested.ER = interested.ER,  
+                   interested.ER = interested.ER[1:3],  
                    signature.list = signature.list)
 
 ## Showing the GSEA results
 test_res$ImmERres[1:3,] 
+#>                 ER                             pathway      pval  padj        ES       NES nMoreExtreme  size
+#>             <char>                              <char>     <num> <num>     <num>     <num>        <num> <int>
+#> 1: ENSG00000133627 Antigen_Processing_and_Presentation 0.7821782     1 0.4215150 0.9342459           78   113
+#> 2: ENSG00000133627                      Antimicrobials 1.0000000     1 0.3751551 0.8455366          100   283
+#> 3: ENSG00000133627                 BCRSignalingPathway 0.4752475     1 0.4659180 1.0014226           47    61
+#>                                                                                           leadingEdge
+#>                                                                                                <list>
+#> 1: ENSG00000161057,ENSG00000131467,ENSG00000120837,ENSG00000100991,ENSG00000175166,ENSG00000001167,...
+#> 2: ENSG00000105983,ENSG00000143319,ENSG00000066044,ENSG00000116161,ENSG00000169756,ENSG00000137274,...
+#> 3: ENSG00000105647,ENSG00000213281,ENSG00000105221,ENSG00000213341,ENSG00000221823,ENSG00000072736,...
+#>    ImmERcorscore
+#>            <num>
+#> 1:   -0.56435644
+#> 2:   -1.00000000
+#> 3:    0.04950495
 ```
 
 
