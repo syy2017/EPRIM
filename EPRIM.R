@@ -36,7 +36,7 @@
 EPRIM <-  function(exp.profile, exp.profile.file, interested.ER, signature.list, cor.cutoff = NULL, cor.method = "spearman",
                    platform ="illumina", is.adjusted = FALSE, min.sz = 1, perm.times = 100){
   
-
+  options (warn = -1)
   # Refine immune pathways
   signature.df0 <- sapply(1:length(signature.list),function(k){
     temp <- cbind(signature.list[[k]],names(signature.list)[k])
